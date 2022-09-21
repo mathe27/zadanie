@@ -110,6 +110,22 @@ eventEmitter.emit('greet');
 
 
 // };
+document.addEventListener('click', function (event) {
+
+	if (!event.target.matches('#category-menu a')) return;
+
+	event.preventDefault();
+    let cat = event.target.getAttribute('data-cat');
+    event.target.classList.add('active');
+    if(cat !== null || cat !== '') {
+        rysujPunkty(cat);
+        //zrobSlider(cat);
+    }
+    else {
+        rysujPunkty();
+        //zrobSlider();
+    }
+}, false);
 
 window.addEventListener('load', function(event) {
     init(_kategorie, _newsy);

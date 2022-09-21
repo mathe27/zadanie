@@ -1,0 +1,63 @@
+#mapa  {
+    overflow:hidden;
+    height:300px;
+    & > div {
+    position:relative;
+    width:800px;
+    height:600px;
+    border:1px solid #ddd;
+    background-color:#999;
+    top:0;
+    left:0;
+    }
+}
+.punkt {
+    position:absolute;
+    width:15px;
+    height:15px;
+    animation-duration: 2.5s;
+        animation-name: fadeInOut;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+}
+
+#category-menu {
+    padding:.3em 0;
+    display:flex;
+    a {
+        border:3px solid red;
+        padding:.5em;
+        margin:0 .5em;
+        display:inline-block;
+        cursor:pointer;
+        flex:1;
+        text-align: center;
+
+        
+
+        &:first-child {
+            margin-left:0;
+        }
+
+        &:last-child {
+            margin-right:0;
+        }
+    }
+}
+
+.category-container {
+    width: 800px;
+    margin: 0 auto;
+}
+@media( max-width: 768px) {
+    .category-container {
+        width:100%;
+    }
+}
+
+.swiper-slide article {
+    margin: .3em;
+    border: 1px solid red;
+    width: 100%;
+    padding: 20px;
+  }

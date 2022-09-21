@@ -1,0 +1,23 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
+
+.container {
+    width:80%;
+    margin:0 auto;
+}
+
+@media(max-width:768px) {
+    .container {
+        width:100%;
+        margin:0 auto;
+    }
+}
+
+h2 {
+    text-align:center;
+}
+
+@import 'kategorie.scss';
