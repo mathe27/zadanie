@@ -1,6 +1,6 @@
 #mapa  {
     overflow:hidden;
-    height:300px;
+
     & > div {
     position:relative;
     width:800px;
@@ -52,6 +52,11 @@
 @media( max-width: 768px) {
     .category-container {
         width:100%;
+    }
+    #mapa {
+        width:100%;
+        height:40vh;
+
     }
 }
 

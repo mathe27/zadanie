@@ -1,0 +1,122 @@
+.toggle {
+    order: 1;
+    display:none;
+
+    & span {
+        display: block;
+        height: 4px;
+        width: 32px;
+        background-color: #000;
+        position: relative;
+        margin-bottom: 3px;
+        position: relative;
+        cursor:pointer;
+
+        background: #cdcdcd;
+        border-radius: 3px;
+        
+        z-index: 1;
+        
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        opacity 0.55s ease;
+
+    }
+
+    &.active span {
+        &:nth-child(1) {
+            transform:  rotate(45deg) translate(4px, 4px) ;
+        }
+
+        &:nth-child(2) {
+            transform:  rotate(-45deg) translate(1px, -1px) ;
+        }
+        &:nth-child(3) {
+            opacity: 0;
+            transform: rotate(0deg) scale(.2,.2);
+        }
+    }
+
+}
+
+header{ box-shadow: 5px 5px 5px rgba(0,0,0,.4);}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding:.5rem;
+   
+
+
+    .item {
+        list-style-type:none;
+        padding:0;
+        a {
+            padding:.4em .8em;
+            font-size:20px;
+            color:#000;
+            display:block;
+            cursor:pointer;
+        }
+    }
+}
+
+
+@media(max-width:768px) {
+    nav {
+        padding:0;
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+            align-items: center;
+            margin:0;
+            padding:0;
+            &.active {
+                box-shadow: 5px 10px 12px rgba(0,0,0,.4);
+            }
+
+            li a {
+                display: block;
+                padding: 15px 5px;
+                color:#000;
+            }
+        }
+    }
+
+    .toggle {
+        order: 1;
+        font-size: 20px;
+        padding:20px;
+        display:block;
+        display:block;
+        flex: 1;
+        text-align: right;
+        order: 2;
+    }
+
+    .item {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        opacity:0;
+        display:block;
+        height:1px;
+        overflow:hidden;
+        transition:.4s ease all;
+        background-color:#fff;
+        color:#000;
+        a {
+            color:#000;
+        }
+    }
+    .active .item {
+        opacity:1;
+        display:block;
+        height:auto;
+    }
+}
