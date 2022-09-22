@@ -15,7 +15,7 @@ export const zadanieMenu = () => {
 
         let active_class = 'active';
         let menuContainer = this.closest('.menu-container');
-        
+
         event.preventDefault();
         if (menuContainer.classList.contains(active_class)) {
             menuContainer.classList.remove(active_class);
@@ -25,5 +25,20 @@ export const zadanieMenu = () => {
             ham.classList.add(active_class); 
         }
 
-    },true);
+    });
+
+    document.addEventListener('click', function (event) {
+
+        if (!event.target.matches('.menu-container .item a')) return;
+
+        event.preventDefault();
+        //let cat = event.target.getAttribute('data-cat');
+        //doRender(cat);
+        let anchor = event.target.getAttribute('href');
+        let name_anchor = anchor.substring(1);
+        let obj = document.querySelector('[name='+ name_anchor+']');
+        window.history.pushState('test', event.target.textContent, anchor);
+        obj.scrollIntoView({behavior: "smooth"});
+    });
+
 }

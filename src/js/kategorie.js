@@ -123,7 +123,7 @@ export const kategoriePanel = (kategorieDane, newsyDane) => {
         }
 
         function render(view) {
-            var res = Mustache.render('<div class="swiper-slide"><article><img src="{{img}}" />       <h3>{{title}}</h3><p>{{content}}</p></article></div>', view);
+            var res = Mustache.render('<div class="swiper-slide"><article><div><img src="{{img}}" /></div>  <h3>{{title}}</h3><p>{{content}}</p></article></div>', view);
             
             return res;
             }
@@ -147,6 +147,10 @@ export const kategoriePanel = (kategorieDane, newsyDane) => {
             }
         }
     }
+
+    window.addEventListener("resize", function(){
+        swiper.update();
+    });
 
     document.addEventListener('click', function (event) {
 

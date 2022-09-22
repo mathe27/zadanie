@@ -1,3 +1,6 @@
+$swiper-border: #ddd;
+$swiper-background: #fff;
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -8,7 +11,7 @@
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: $swiper-background;
     height: calc((100% - 30px) / 2) !important;
 
     /* Center slide text vertically */
@@ -24,11 +27,40 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    
+
    article {
-    margin: .3em;
-    border: 1px solid red;
+    margin: 0;
+    border: 1px solid $swiper-border;
     width: 100%;
-    padding: 20px;
+    padding: 0px;
+    & > div {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        overflow: hidden;
+        img {
+        width: 100%;
+        min-height: 100%;
+        transform: translate(0, -25%);
+        }
+    }
   }
 }
+
+.swiper-button-next, .swiper-button-prev {
+    background-color: $swiper-background;
+    padding: 1em;
+    border-radius: 100%;
+    box-shadow: 4px 4px 4px rgba(0,0,0,.4);
+    height: 50px;
+    width: 50px;
+    opacity:.7;
+    transition:opacity .3s ease-in;
+    &:hover {
+        opacity:1;
+    }
+    &.swiper-button-disabled {
+        opacity:0;
+    }
+  }
