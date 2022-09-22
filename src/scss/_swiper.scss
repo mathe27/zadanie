@@ -43,7 +43,7 @@ $swiper-background: #fff;
         -webkit-box-orient: vertical;
         margin:.5em;
         text-align:left;
-        min-height:5em;
+        min-height:4.8em;
     }
     
   }
@@ -64,11 +64,12 @@ $swiper-background: #fff;
     &.swiper-button-disabled {
         opacity:0;
     }
-
-    &::after {
-        font-size:20px;
-        font-weight:bold;
-    }
+}
+.swiper-button-next {
+    @include arrow(right);
+  }
+  .swiper-button-prev {
+    @include arrow(left);
   }
 
 @media(max-width:$medium) {

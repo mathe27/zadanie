@@ -20,6 +20,17 @@
     border-radius: 100% 50% 0 50%;
     transform: rotate(45deg);
     box-shadow: $box-shadow;
+    &:after {
+        background-color: $background-color;
+        border-radius: 50%;
+        content: '';
+        width: 6px;
+        height: 6px;
+        display: block;
+        top: 30%;
+        position: absolute;
+        left: 30%;
+    }
 }
 
 #category-menu {

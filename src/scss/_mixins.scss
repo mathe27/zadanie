@@ -73,3 +73,52 @@
     -webkit-flex: $flex;
     flex: $flex;
 }
+
+@mixin arrow($strona:right,$szer:15px) {
+    $black-offset: calc($szer / 4);
+    $white-offset: $black-offset + $szer;
+
+    overflow:hidden;
+
+    &:before {
+        content: '';
+        background-color: $font-color;
+        width: 40%;
+        height: 40%;
+        @if $strona == right {
+            transform: translate(#{-1 * $black-offset}, 0px) rotate(45deg);
+        }
+        @else if $strona == left {
+            transform: translate( #{$black-offset}, 0px) rotate(45deg);
+        }
+        @else if $strona == top {
+            transform: translate( 0px, #{$black-offset}) rotate(45deg);
+        }
+        @else if $strona == bottom {
+            transform: translate( 0px, #{-1 * $black-offset}) rotate(45deg);
+        }
+        position: absolute;
+    }
+
+    &::after {
+        content: '';
+        background-color: $background-color;
+        width: 40%;
+        height: 40%;
+        @if $strona == right {
+            transform: translate(#{$white-offset *-1}, 0px) rotate(45deg);
+        }
+        @else if $strona == left {
+            transform: translate( #{$white-offset}, 0px) rotate(45deg);
+        }
+        @else if $strona == top {
+            transform: translate( 0px, #{$white-offset}) rotate(45deg);
+        }
+        @else if $strona == bottom {
+            transform: translate( 0px, #{$white-offset * -1}) rotate(45deg);
+        }
+        display: block;
+        position: absolute;
+    }
+}
+
