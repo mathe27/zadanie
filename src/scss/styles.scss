@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@import 'scss-reset/_reset.scss';
 @import 'conf';
 @import 'mixins';
 
@@ -13,6 +13,7 @@ html, body {
 
 body {
     background-color:$background-color;
+    padding-bottom:4em;
 }
 
 .container {
@@ -38,6 +39,12 @@ h2 {
     text-align:center;
     margin:3em 0 1em;
     display:block !important;
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+    padding: .3em .1em;
 }
 
 body.loading {

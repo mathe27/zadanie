@@ -26,7 +26,7 @@
         
     @include display-flex();
     padding: 0.5em 0.3em;
-    margin: .5em;
+    margin: .5em auto;
 
     a {
         border:2px solid var(--cat-menu-color);
@@ -38,6 +38,7 @@
         text-decoration: none;
         color:$font-color;
         text-transform: uppercase;
+        white-space: nowrap;
 
         &:first-child {
             margin-left:0;
@@ -54,14 +55,14 @@
     }
 }
 
-.category-container {
+#category-container {
     max-width: $panel-width;
     margin: 0 auto;
 }
 
 
 @media( max-width: $medium) {
-    .category-container {
+    #category-container {
         width:100%;
     }
 

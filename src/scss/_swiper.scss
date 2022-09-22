@@ -35,6 +35,17 @@ $swiper-background: #fff;
         //transform: translate(0, -25%);
         }
     }
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        margin:.5em;
+        text-align:left;
+        min-height:5em;
+    }
+    
   }
 }
 
@@ -43,8 +54,8 @@ $swiper-background: #fff;
     padding: 1em;
     border-radius: 100%;
     box-shadow: $box-shadow;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     opacity:.7;
     transition:opacity .3s ease-in;
     &:hover {
@@ -62,7 +73,7 @@ $swiper-background: #fff;
 
 @media(max-width:$medium) {
     .swiper-button-next, .swiper-button-prev {
-        height: 20px;
-        width: 20px;
+        height: 45px;
+        width: 45px;
     }
 }
