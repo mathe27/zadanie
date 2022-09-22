@@ -1,7 +1,6 @@
-import  { _menu } from '../data/menu';
 var Mustache = require('mustache');
 
-export const zadanieMenu = () => {
+export const zadanieMenu = (_menu) => {
 
     var template = '<section class="container"><ul class="menu-container">{{#menu-items}}<li class="item"><a href="#{{slug}}">{{title}}</a></li>{{/menu-items}}<li class="toggle" id="main-menu-toggle"><span></span><span></span><span></span></li></ul></section>';
 

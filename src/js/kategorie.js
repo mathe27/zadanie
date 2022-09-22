@@ -3,17 +3,19 @@ import { swiperData } from '../data/swiper';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
-var Mustache = require('mustache');
+const Mustache = require('mustache');
 
 
-export const kategoriePanel = (kategorieDane, newsyDane) => {
+export const kategoriePanel = (kategorieDane={}, newsyDane={}, _menu={}) => {
     const kategorie = kategorieDane;
     const newsy = newsyDane;
     const swiper = new Swiper('.swiper', swiperData);
+    const menu = _menu;
 
     document.onreadystatechange = function(event) {
         if (document.readyState === "complete") {
                doLoad();
+               dragElement(document.getElementById("mydiv"));
 
         }
     }; 
@@ -33,8 +35,12 @@ export const kategoriePanel = (kategorieDane, newsyDane) => {
     }
 
     function createCategoryMenu() {
+        let template = '<h2><a name="{{slug}}}}"></a>{{title}}</h2><div id="category-menu"></div><div id="mapa"><div id="mydiv"></div></div>';
+        let container = document.getElementById('category-container');
+
+        container.innerHTML = Mustache.render(template,menu[0]);
+
         const menuContainer = document.getElementById('category-menu');
-        var view = {};
 
         function render(view) {
             var res = Mustache.render('<a href="#" data-color="{{color}}" data-cat="{{item_id}}" style="--cat-menu-color:{{color}}">{{title}}</a>', view);
@@ -179,19 +185,7 @@ export const kategoriePanel = (kategorieDane, newsyDane) => {
     };
 }
 
-function onDragStart(event) {
-    event
-      .dataTransfer
-      .setData('text/plain', event.target.id);
-  
-    event
-      .currentTarget
-      .style
-      .backgroundColor = 'yellow';
-  }
 
-
-  dragElement(document.getElementById("mydiv"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
