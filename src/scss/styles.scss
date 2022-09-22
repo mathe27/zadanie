@@ -37,8 +37,29 @@ body {
 h2 {
     text-align:center;
     margin:3em 0 1em;
+    display:block !important;
 }
 
+body.loading {
+    .loader {
+        display:block;
+    }
+
+    .content, header, h2 {
+        display:none !important;
+    }
+}
+
+.loader {
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: $background-color;
+    z-index:400;
+    display:none;
+}
 @import 'kategorie.scss';
 @import 'menu.scss';
 @import 'swiper.scss';

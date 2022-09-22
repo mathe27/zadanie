@@ -7,3 +7,10 @@ import "./../scss/styles.scss";
 
 zadanieMenu();
 kategoriePanel(_kategorie,_newsy);
+
+window.onload = function(event) {
+
+           document.body.classList.remove('loading');
+
+    
+}; 
