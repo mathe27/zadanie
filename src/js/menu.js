@@ -1,4 +1,4 @@
-import  { _menu } from './data/menu';
+import  { _menu } from '../data/menu';
 var Mustache = require('mustache');
 
 export const zadanieMenu = () => {

@@ -1,4 +1,4 @@
-import { swiperData } from './data/swiper';
+import { swiperData } from '../data/swiper';
 
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
