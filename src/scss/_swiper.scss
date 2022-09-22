@@ -32,7 +32,7 @@ $swiper-background: #fff;
         img {
         width: 100%;
         min-height: 100%;
-        transform: translate(0, -25%);
+        //transform: translate(0, -25%);
         }
     }
   }
@@ -43,8 +43,8 @@ $swiper-background: #fff;
     padding: 1em;
     border-radius: 100%;
     box-shadow: $box-shadow;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     opacity:.7;
     transition:opacity .3s ease-in;
     &:hover {
@@ -53,4 +53,16 @@ $swiper-background: #fff;
     &.swiper-button-disabled {
         opacity:0;
     }
+
+    &::after {
+        font-size:20px;
+        font-weight:bold;
+    }
   }
+
+@media(max-width:$medium) {
+    .swiper-button-next, .swiper-button-prev {
+        height: 20px;
+        width: 20px;
+    }
+}

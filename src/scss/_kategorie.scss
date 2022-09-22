@@ -17,6 +17,9 @@
     position:absolute;
     width:15px;
     height:15px;
+    border-radius: 100% 50% 0 50%;
+    transform: rotate(45deg);
+    box-shadow: $box-shadow;
 }
 
 #category-menu {
@@ -112,7 +115,8 @@
 
 @media( min-width: $medium) { 
     #mapa {
-        width:100%;
+        //width:100%;
+        margin:0 auto;
     }
     #category-menu {
         padding:1em 0;

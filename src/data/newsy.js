@@ -7,12 +7,12 @@ export const _newsy = {
         },
         'news2': {
             'title':'Lorem2...',
-            'img':'https://picsum.photos/200/300',
+            'img':'/images/annie-spratt-5ABow0uVv_k-unsplash.jpg',
             'content':'ipsum2...'
         },
         'news3': {
             'title':'Lorem.3..',
-            'img':'https://picsum.photos/200/300',
+            'img':'/images/markus-spiske-ujsc723Pn7g-unsplash.jpg',
             'content':'ipsum3...'
         },
     },
@@ -29,7 +29,7 @@ export const _newsy = {
         },
         'news5': {
             'title':'Lorem.3..',
-            'img':'https://picsum.photos/200/300',
+            'img':'/images/Gull_portrait_ca_usa.jpg',
             'content':'ipsum3...'
         },
         'news7': {
@@ -44,7 +44,7 @@ export const _newsy = {
         },
         'news9': {
             'title':'Lorem.3..',
-            'img':'https://picsum.photos/200/300',
+            'img':'/images/photo-1503023345310-bd7c1de61c7d.jpg',
             'content':'ipsum3...'
         },
     },
@@ -65,5 +65,16 @@ export const _newsy = {
             'content':'ipsum3...'
         },
     },
-    'kategoria4':{}
+    'kategoria4':{
+        'news13': {
+            'title':'Lorem.3..',
+            'img':'/images/photo-1503023345310-bd7c1de61c7d.jpg',
+            'content':'ipsum3...'
+        },
+        'news14': {
+            'title':'Lorem.aaa..',
+            'img':'/images/markus-spiske-ujsc723Pn7g-unsplash.jpg',
+            'content':'ipsum3...'
+        },
+    }
 };

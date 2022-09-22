@@ -1,16 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const { NoEmitOnErrorsPlugin } = require('webpack');
+const PATHS = {
+                'dist': path.resolve(__dirname, 'dist'),
+
+}
 module.exports = {
   entry: './src/js/index.js',
   mode:"development",
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: PATHS.dist,
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: PATHS.dist,
     },
     compress: true,
     port: 9000,
@@ -36,6 +39,7 @@ module.exports = {
           "css-loader",
         ],
       },
+      
       
     ],
   },
