@@ -2,7 +2,7 @@ var Mustache = require('mustache');
 
 export const zadanieMenu = (_menu) => {
 
-    var template = '<section class="container"><ul class="menu-container">{{#menu-items}}<li class="item"><a href="#{{slug}}">{{title}}</a></li>{{/menu-items}}<li class="toggle" id="main-menu-toggle"><span></span><span></span><span></span></li></ul></section>';
+    var template = '<section class="container"><ul class="menu-container">{{#menu-items}}<li class="item"><a href="\#{{slug}}">{{title}}</a></li>{{/menu-items}}<li class="toggle" id="main-menu-toggle"><span></span><span></span><span></span></li></ul></section>';
 
     const nav = document.getElementsByTagName('nav')[0];
     var res = Mustache.render(template, {'menu-items': _menu,});
@@ -39,7 +39,7 @@ export const zadanieMenu = (_menu) => {
         window.history.pushState('test', event.target.textContent, anchor);
         document.querySelector('.menu-container').classList.remove('active');
         document.getElementById('main-menu-toggle').classList.remove('active');
-        obj.scrollIntoView({behavior: "smooth"});
+        obj.scrollIntoView({alignToTop:true,behavior: "smooth"});
     });
 
 }

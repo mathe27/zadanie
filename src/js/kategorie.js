@@ -35,7 +35,7 @@ export const kategoriePanel = (kategorieDane={}, newsyDane={}, _menu={}) => {
     }
 
     function createCategoryMenu() {
-        let template = '<h2><a name="{{slug}}}}"></a>{{title}}</h2><div id="category-menu"></div><div id="mapa"><div id="mydiv"></div></div>';
+        let template = '<h2><a name="{{slug}}"></a>{{title}}</h2><div id="category-menu"></div><div id="mapa"><div id="mydiv"></div></div>';
         let container = document.getElementById('category-container');
 
         container.innerHTML = Mustache.render(template,menu[0]);
@@ -189,7 +189,7 @@ export const kategoriePanel = (kategorieDane={}, newsyDane={}, _menu={}) => {
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  var elmnParent = elmnt.parentNode;
+  var elmntParent = elmnt.parentNode;
   if (document.getElementById(elmnt.id + "header")) {
     // if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
@@ -217,29 +217,31 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
- 
-    let topPos = (elmnt.offsetTop - elmnParent.offsetTop) -  pos2;
+    
+
+    let topPos = (elmnt.offsetTop - elmntParent.offsetTop) -  pos2;
+    // przesuwaj tylko do momentu, gdy górne krawedzie elmnt i elmntParent zetkną się
     if(topPos > 0 )
         topPos = 0;
 
-    console.log('%========================')
-    console.log((elmnt.offsetTop +topPos + elmnt.offsetHeight) - (elmnParent.offsetTop + elmnParent.offsetHeight));
-    console.log(elmnt.offsetHeight, elmnt.offsetTop);
-    console.log(elmnParent.offsetHeight, elmnParent.offsetTop);
-    //if((elmnt.offsetTop +topPos + elmnt.offsetHeight) - (elmnParent.offsetTop + elmnParent.offsetHeight)  < elmnt.offsetHeight * -1)
-        //topPos = elmnt.offsetHeight - elmnParent.offsetHeight;
+    // to samo dla dolnych
+    if((elmntParent.offsetHeight - elmnt.offsetHeight) > topPos ) {
+        topPos = elmntParent.offsetHeight - elmnt.offsetHeight;
+
+    }
 
     elmnt.style.top =  topPos + "px";
 
-    let leftPos = (elmnt.offsetLeft - elmnParent.offsetLeft) -  pos1;
+    let leftPos = (elmnt.offsetLeft - elmntParent.offsetLeft) -  pos1;
+    // przesuwaj tylko do momentu, gdy lewe krawedzie elmnt i elmntParent zetkną się
     if(leftPos > 0 )
         leftPos = 0;
 
-    if((leftPos + elmnt.offsetWidth) - (elmnParent.offsetLeft + elmnParent.offsetWidth) < 0)
-        leftPos = elmnt.offsetWidth - elmnParent.offsetWidth;
+    // to samo dla prawych
+    if((elmntParent.offsetWidth - elmnt.offsetWidth) > leftPos)
+        leftPos = elmntParent.offsetWidth - elmnt.offsetWidth;
 
-    elmnt.style.left = leftPos + "px";//(elmnt.offsetLeft - pos1) + "px";
-    //console.log(elmnt.style.left);
+    elmnt.style.left = leftPos + "px";
   }
 
   function closeDragElement() {

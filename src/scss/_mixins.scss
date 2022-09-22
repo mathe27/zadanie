@@ -74,8 +74,8 @@
     flex: $flex;
 }
 
-@mixin arrow($strona:right,$szer:15px) {
-    $black-offset: calc($szer / 4);
+@mixin arrow($strona:right,$szer:14px) {
+    $black-offset: 0;//calc($szer / 4);
     $white-offset: $black-offset + $szer;
 
     overflow:hidden;

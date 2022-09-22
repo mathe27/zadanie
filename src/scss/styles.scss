@@ -70,3 +70,8 @@ body.loading {
 @import 'kategorie.scss';
 @import 'menu.scss';
 @import 'swiper.scss';
+
+a[name="zaplanuj-wycieczke"] {
+    padding-bottom: 2.5em;
+    display: block;
+}
