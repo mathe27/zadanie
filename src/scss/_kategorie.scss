@@ -1,9 +1,3 @@
-$panel-width: 800px;
-$panel-height: 600px;
-$primary-color: #ddd;
-$secondary-color: #999;
-$font-color: #000;
-
 #mapa  {
     overflow:hidden;
     width:$panel-width;
@@ -23,22 +17,20 @@ $font-color: #000;
     position:absolute;
     width:15px;
     height:15px;
-    animation-duration: 2.5s;
-    animation-name: fadeInOut;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
 }
 
 #category-menu {
-    padding:1em 0;
-    display:flex;
+        
+    @include display-flex();
+    padding: 0.5em 0.3em;
+    margin: .5em;
+
     a {
         border:2px solid var(--cat-menu-color);
         padding:.5em;
-        margin:0 .5em;
+        margin:.5em;
         display:inline-block;
         cursor:pointer;
-        // flex:1;
         text-align: center;
         text-decoration: none;
         color:$font-color;
@@ -65,24 +57,16 @@ $font-color: #000;
 }
 
 
-
-@media( max-width: $panel-width) {
+@media( max-width: $medium) {
     .category-container {
         width:100%;
     }
 
     #category-menu {
-        flex-direction: row;
-        padding: 0.5em 0.3em;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: .5em;
-        a {
-            margin:.5em;
-            display:inline-block;
-
-        }
+        @include flex-direction-row() ;
+        @include justify-content-center();
+        @include flex-wrap-wrap();
+        
     }
     #mapa {
         width:100%;
@@ -91,9 +75,10 @@ $font-color: #000;
     }
 }
 
-@media( max-width: 400px) {
+
+@media( max-width: 420px) {
     #category-menu {
-        flex-direction: column;
+        @include flex-direction-column();
         margin: 0;
         a {
             margin:.5em;
@@ -109,7 +94,7 @@ $font-color: #000;
     }
 }
 
-@media( min-width: $panel-width) {
+@media( min-width: $medium) { 
     #mapa {
         & > div {
             top:0 !important;
@@ -117,8 +102,23 @@ $font-color: #000;
         }
     }
     #category-menu {
+        padding:1em 0;
         a {
-            flex:1;
+            @include flex(1);
+            margin:0 .5em;
+        }
+    }
+}
+
+@media( min-width: $medium) { 
+    #mapa {
+        width:100%;
+    }
+    #category-menu {
+        padding:1em 0;
+        a {
+            @include flex(1);
+            margin:0 .5em;
         }
     }
 }

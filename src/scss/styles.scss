@@ -1,27 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+@import 'conf';
+@import 'mixins';
 
-$box-shadow:2px 2px 3px rgba(0,0,0,.2);
+
+
 html, body {
     margin:0;
     padding:0;
     font-family: 'Roboto',sans-serif;
 }
 
+body {
+    background-color:$background-color;
+}
 
 .container {
     width:80%;
     margin:0 auto;
 }
 
-@media(max-width:1024px) {
+@media(max-width:$large) {
     .container {
         width:95%;
         margin:0 auto;
     }
 }
 
-@media(max-width:768px) {
+@media(max-width:$medium) {
     .container {
         width:100%;
         margin:0 auto;

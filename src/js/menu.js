@@ -38,6 +38,8 @@ export const zadanieMenu = () => {
         let name_anchor = anchor.substring(1);
         let obj = document.querySelector('[name='+ name_anchor+']');
         window.history.pushState('test', event.target.textContent, anchor);
+        document.querySelector('.menu-container').classList.remove('active');
+        document.getElementById('main-menu-toggle').classList.remove('active');
         obj.scrollIntoView({behavior: "smooth"});
     });
 

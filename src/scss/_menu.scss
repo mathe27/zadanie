@@ -1,4 +1,3 @@
-$toggle-color: #000;
 .toggle {
     order: 1;
     display:none;
@@ -40,10 +39,10 @@ $toggle-color: #000;
 header{ box-shadow: $box-shadow}
 
 ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    @include display-flex();
+    @include flex-wrap-wrap();
+    @include justify-content-center();
+    @include align-items-center();
     margin:0;
     padding:.5rem;
    
@@ -55,7 +54,7 @@ ul {
         a {
             padding:.4em .8em;
             font-size:20px;
-            color:#000;
+            color:$font-color;
             display:block;
             cursor:pointer;
             text-decoration: none;
@@ -68,46 +67,44 @@ ul {
 }
 
 
-@media(max-width:768px) {
+@media(max-width:$medium) {
     nav {
         padding:0;
         .menu-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: end;
-            align-items: center;
+            @include display-flex();
+            @include flex-wrap-wrap();
+            @include justify-content-flex-end();
+            @include align-items-center();
             margin:0;
             padding:0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
-            background-color: #fff;
+            background-color: $background-color;
             &.active {
-                box-shadow: 5px 10px 12px rgba(0,0,0,.4);
+                box-shadow: $box-shadow;
             }
 
             li a {
                 display: block;
                 padding: 15px 5px;
-                color:#000;
+                color:$font-color;
             }
         }
     }
 
     .toggle {
-        order: 1;
+        @include order(2);
         font-size: 20px;
         padding:20px;
         display:block;
-        display:block;
         flex: 1;
         text-align: right;
-        order: 2;
     }
 
     .item {
-        order: 3;
+        @include order(3);
         width: 100%;
         text-align: center;
         opacity:0;
@@ -115,10 +112,10 @@ ul {
         height:1px;
         overflow:hidden;
         transition:.4s ease all;
-        background-color:#fff;
-        color:#000;
+        background-color:$background-color;
+        color:$font-color;
         a {
-            color:#000;
+            color:$font-color;
         }
     }
     .active .item {
