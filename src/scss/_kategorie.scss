@@ -1,17 +1,17 @@
-$max-width: 800px;
-$max-height: 600px;
+$panel-width: 800px;
+$panel-height: 600px;
 $primary-color: #ddd;
 $secondary-color: #999;
 $font-color: #000;
 
 #mapa  {
     overflow:hidden;
-    width:$max-width;
-    height:$max-height;
+    width:$panel-width;
+    height:$panel-height;
     & > div {
         position:relative;
-        width:$max-width;
-        height:$max-height;
+        width:$panel-width;
+        height:$panel-height;
         border:1px solid $primary-color;
         background-color:$secondary-color;
         top:0;
@@ -60,13 +60,13 @@ $font-color: #000;
 }
 
 .category-container {
-    max-width: $max-width;
+    max-width: $panel-width;
     margin: 0 auto;
 }
 
 
 
-@media( max-width: 800px) {
+@media( max-width: $panel-width) {
     .category-container {
         width:100%;
     }
@@ -109,7 +109,7 @@ $font-color: #000;
     }
 }
 
-@media( min-width: 800px) {
+@media( min-width: $panel-width) {
     #mapa {
         & > div {
             top:0 !important;
