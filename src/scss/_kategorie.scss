@@ -1,39 +1,48 @@
+$max-width: 800px;
+$max-height: 600px;
+$primary-color: #ddd;
+$secondary-color: #999;
+$font-color: #000;
+
 #mapa  {
     overflow:hidden;
-
+    width:$max-width;
+    height:$max-height;
     & > div {
-    position:relative;
-    width:800px;
-    height:600px;
-    border:1px solid #ddd;
-    background-color:#999;
-    top:0;
-    left:0;
+        position:relative;
+        width:$max-width;
+        height:$max-height;
+        border:1px solid $primary-color;
+        background-color:$secondary-color;
+        top:0;
+        left:0;
     }
 }
+
 .punkt {
     position:absolute;
     width:15px;
     height:15px;
     animation-duration: 2.5s;
-        animation-name: fadeInOut;
-        animation-iteration-count: 1;
-        animation-direction: alternate;
+    animation-name: fadeInOut;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
 }
 
 #category-menu {
-    padding:.3em 0;
+    padding:1em 0;
     display:flex;
     a {
-        border:3px solid red;
+        border:2px solid var(--cat-menu-color);
         padding:.5em;
         margin:0 .5em;
         display:inline-block;
         cursor:pointer;
         flex:1;
         text-align: center;
-
-        
+        text-decoration: none;
+        color:$font-color;
+        text-transform: uppercase;
 
         &:first-child {
             margin-left:0;
@@ -42,16 +51,31 @@
         &:last-child {
             margin-right:0;
         }
+
+        &:hover, &.active {
+            background-color: var(--cat-menu-color);
+        }
+
     }
 }
 
 .category-container {
-    width: 800px;
+    max-width: $max-width;
     margin: 0 auto;
 }
-@media( max-width: 768px) {
+
+
+@media( max-width: 850px) {
     .category-container {
         width:100%;
+    }
+
+    #category-menu {
+        flex-direction:column;
+        padding:.5em .3em;
+        a {
+            margin:.1em 0;
+        }
     }
     #mapa {
         width:100%;
@@ -60,9 +84,4 @@
     }
 }
 
-.swiper-slide article {
-    margin: .3em;
-    border: 1px solid red;
-    width: 100%;
-    padding: 20px;
-  }
+

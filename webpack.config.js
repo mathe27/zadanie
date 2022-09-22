@@ -1,5 +1,6 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const { NoEmitOnErrorsPlugin } = require('webpack');
 module.exports = {
   entry: './src/js/index.js',
   mode:"development",
@@ -14,6 +15,10 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  plugins: [
+    new HtmlWebpackPlugin({title:'Zadanie',filename: 'index.html',
+    template: './src/js/templates/index.ejs'})
+  ],
   module: {
     rules: [
       {
@@ -31,6 +36,7 @@ module.exports = {
           "css-loader",
         ],
       },
+      
     ],
   },
 };

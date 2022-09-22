@@ -1,8 +1,10 @@
-export const _menu = {
-    'zaplanuj-wycieczke': {
+export const _menu = [
+    {
         'title': 'Zaplanuj wycieczkę',
+        'slug': 'zaplanuj-wycieczke',
     },
-    'arakcje-regionu': {
+    {
         'title': 'Atrakcje regionu',
+        'slug':'atrakcje-regionu',
     }
-};
+];

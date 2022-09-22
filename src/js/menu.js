@@ -1,47 +1,29 @@
 import  { _menu } from './data/menu';
+var Mustache = require('mustache');
 
-const header = document.getElementsByTagName('header')[0];
-const nav = document.getElementsByTagName('nav')[0];
-//const ham = document.getElementById('hamburger');
-const section = document.createElement('section');
-section.classList.add('container');
-nav.appendChild(section);
+export const zadanieMenu = () => {
 
-const menu_container = document.createElement('ul');
-menu_container.classList.add('menu-container');
-section.appendChild(menu_container);
-for(var m in _menu)
-{
-//menu.forEach((key, item) => {
-    const liElem = document.createElement('li');
-    menu_container.appendChild(liElem);
-    liElem.classList.add('item');
-    const anchorElem = document.createElement('a');
-    anchorElem.innerHTML = _menu[m].title;
-    liElem.appendChild(anchorElem);
-};//);
-const ham = document.createElement('li');
-ham.classList.add('toggle');
-ham.innerHTML='<span></span><span></span><span></span>'  ;
-menu_container.appendChild(ham);
+    var template = '<section class="container"><ul class="menu-container">{{#menu-items}}<li class="item"><a href="#{{slug}}">{{title}}</a></li>{{/menu-items}}<li class="toggle" id="main-menu-toggle"><span></span><span></span><span></span></li></ul></section>';
 
-
-ham.addEventListener('click', function (event) {
-
-	//if (!event.target.matches('.toggle')) return;
-    let active_class = 'active';
-    console.log('helllloo');
-	event.preventDefault();
-    if (menu_container.classList.contains(active_class)) {
-        menu_container.classList.remove(active_class);
-         ham.classList.remove(active_class);
-        // adds the menu (hamburger) icon
-        //toggle.querySelector("a").innerHTML = "<i class=’fas fa-bars’></i>";
-    } else {
-        menu_container.classList.add(active_class);
-        ham.classList.add(active_class); 
-        // adds the close (x) icon
-        //toggle.querySelector("a").innerHTML = "<i class=’fas fa-times’></i>";
-    }
+    const nav = document.getElementsByTagName('nav')[0];
+    var res = Mustache.render(template, {'menu-items': _menu,});
     
-}, true);
+    nav.innerHTML = res;
+
+    const ham = document.getElementById('main-menu-toggle');
+    ham.addEventListener('click', function (event) {
+
+        let active_class = 'active';
+        let menuContainer = this.closest('.menu-container');
+        
+        event.preventDefault();
+        if (menuContainer.classList.contains(active_class)) {
+            menuContainer.classList.remove(active_class);
+            ham.classList.remove(active_class);
+        } else {
+            menuContainer.classList.add(active_class);
+            ham.classList.add(active_class); 
+        }
+
+    },true);
+}

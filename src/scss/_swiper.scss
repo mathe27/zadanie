@@ -24,4 +24,11 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    
+   article {
+    margin: .3em;
+    border: 1px solid red;
+    width: 100%;
+    padding: 20px;
   }
+}
