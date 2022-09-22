@@ -191,10 +191,11 @@ function onDragStart(event) {
   }
 
 
-  //dragElement(document.getElementById("mydiv"));
+  dragElement(document.getElementById("mydiv"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  var elmnParent = elmnt.parentNode;
   if (document.getElementById(elmnt.id + "header")) {
     // if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
@@ -218,25 +219,32 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    //let top = elmnt.offsetTop - pos2;
-    //console.log(pos1, pos2);
-    //console.log(elmnt.offsetTop - pos2);
-    // set the element's new position:
-    
-    //console.log(top);
-   // if(elmnt.offsetTop - pos2 <= 0)
-    {
-       // top = 0 ;
-        elmnt.style.top =  (pos2 * -1) + "px";
-    }
-        //elmnt.style.top = top + "px";
-    //if(elmnt.offsetLeft - pos1 <= 0)
-    elmnt.style.left = pos1 + "px";//(elmnt.offsetLeft - pos1) + "px";
+ 
+    let topPos = (elmnt.offsetTop - elmnParent.offsetTop) -  pos2;
+    if(topPos > 0 )
+        topPos = 0;
+
+    console.log('%========================')
+    console.log((elmnt.offsetTop +topPos + elmnt.offsetHeight) - (elmnParent.offsetTop + elmnParent.offsetHeight));
+    console.log(elmnt.offsetHeight, elmnt.offsetTop);
+    console.log(elmnParent.offsetHeight, elmnParent.offsetTop);
+    //if((elmnt.offsetTop +topPos + elmnt.offsetHeight) - (elmnParent.offsetTop + elmnParent.offsetHeight)  < elmnt.offsetHeight * -1)
+        //topPos = elmnt.offsetHeight - elmnParent.offsetHeight;
+
+    elmnt.style.top =  topPos + "px";
+
+    let leftPos = (elmnt.offsetLeft - elmnParent.offsetLeft) -  pos1;
+    if(leftPos > 0 )
+        leftPos = 0;
+
+    if((leftPos + elmnt.offsetWidth) - (elmnParent.offsetLeft + elmnParent.offsetWidth) < 0)
+        leftPos = elmnt.offsetWidth - elmnParent.offsetWidth;
+
+    elmnt.style.left = leftPos + "px";//(elmnt.offsetLeft - pos1) + "px";
     //console.log(elmnt.style.left);
   }
 

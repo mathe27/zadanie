@@ -52,7 +52,7 @@ $swiper-background: #fff;
     background-color: $swiper-background;
     padding: 1em;
     border-radius: 100%;
-    box-shadow: 4px 4px 4px rgba(0,0,0,.4);
+    box-shadow: $box-shadow;
     height: 50px;
     width: 50px;
     opacity:.7;
